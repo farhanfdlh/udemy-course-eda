@@ -26,6 +26,32 @@ Understanding what factors drive course popularity, pricing strategy, and revenu
 
 ---
 
+## 📊 Tableau Dashboard
+
+<table>
+<tr>
+<td width="50%">
+  <img src="dashboard-udemy-course.png" alt="Project Overview" width="100%"/>
+</td>
+<td valign="top">
+
+Explore the interactive dashboard here:
+
+🔗 **[Udemy Course Dataset — Data Visualization (Tableau Public)](https://public.tableau.com/app/profile/farhan.fadhilah.rasyid/viz/UdemyCoursedatasetDataVisualization/Dashboard2)**
+
+The dashboard includes:
+- Top 10 courses by various metrics (subscribers, revenue, lectures, etc.)
+- Free vs. Paid course distribution
+- Average metrics by subject, level, and paid status
+- Course publication trends by year and month
+- Annual revenue and subscriber trends
+
+</td>
+</tr>
+</table>
+
+---
+
 ## 📂 Dataset
 
 | Property | Details |
@@ -82,20 +108,6 @@ Understanding what factors drive course popularity, pricing strategy, and revenu
 
 ---
 
-## 📊 Tableau Dashboard
-
-Explore the interactive dashboard here:
-
-🔗 **[Udemy Course Dataset — Data Visualization (Tableau Public)](https://public.tableau.com/views/UdemyCoursedatasetDataVisualization/DashboardVisualisasiDataUdemyCourse)**
-
-The dashboard includes:
-- Top 10 courses by various metrics (subscribers, revenue, lectures, etc.)
-- Free vs. Paid course distribution
-- Average metrics by subject, level, and paid status
-- Course publication trends by year and month
-- Annual revenue and subscriber trends
-
----
 
 ## 👥 Authors
 
