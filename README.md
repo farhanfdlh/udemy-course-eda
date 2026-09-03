@@ -1,100 +1,86 @@
-# 📊 Udemy Course Data Analytics — Exploratory Data Analysis (EDA)
+# Udemy Course Performance & Pricing Analysis
 
-![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)
-![Tableau](https://img.shields.io/badge/Tableau-Visualization-E97627?logo=tableau)
-![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter)
-![License](https://img.shields.io/badge/License-MIT-green)
+> Exploratory analysis of 3,678 Udemy courses to understand what drives course popularity, pricing, and revenue — from the platform's perspective — with an interactive Tableau dashboard.
 
-> A practical data analytics module using the Udemy Courses Dataset as a case study. This project explores course trends, pricing, subscriber behavior, and revenue insights through EDA and interactive Tableau dashboards.
+🔴 **[View the interactive dashboard →](https://public.tableau.com/app/profile/farhan.fadhilah.rasyid/viz/UdemyCoursedatasetDataVisualization/Dashboard2)**
 
 ---
 
-## 📌 Project Overview
+## 📑 Table of Contents
 
-This project uses a dataset of 3,678 Udemy courses to perform a full Exploratory Data Analysis (EDA) and data visualization.
-
-### Problem Statement
-Understanding what factors drive course popularity, pricing strategy, and revenue on the Udemy platform — from both a learner's and a course creator's perspective.
-
-### Goals
-- Identify the most popular courses and subjects by subscriber count
-- Analyze price and duration distributions across course levels and subjects
-- Explore correlations between price, duration, reviews, and subscriber count
-- Track publication trends by year and month
-- Evaluate annual revenue patterns
+- [Business Background](#-business-background)
+- [Business Objective](#-business-objective)
+- [Data Overview](#-data-overview)
+- [Approach and Methodology](#-approach-and-methodology)
+- [Key Findings](#-key-findings)
+- [Business Impact and Recommendations](#-business-impact-and-recommendations)
+- [Tools & Tech Stack](#%EF%B8%8F-tools--tech-stack)
+- [Author](#-author)
 
 ---
 
-## 📊 Tableau Dashboard
+## 📌 Business Background
 
-<table>
-<tr>
-<td width="50%">
-  <img src="dashboard-udemy-course.png" alt="Project Overview" width="100%"/>
-</td>
-<td valign="top">
+An online course marketplace like Udemy sits between two groups it needs to keep aligned: learners looking for the right course at the right price, and creators deciding what to build and how to price it. Without a clear picture of what's actually driving subscriptions, pricing tolerance, and revenue across the catalog, the platform is left guessing at which subjects to promote, what pricing guidance to give creators, and why growth may be slowing.
 
-Explore the interactive dashboard here:
+## 🎯 Business Objective
 
-🔗 **[Udemy Course Dataset — Data Visualization (Tableau Public)](https://public.tableau.com/app/profile/farhan.fadhilah.rasyid/viz/UdemyCoursedatasetDataVisualization/Dashboard2)**
+From the platform's point of view, this analysis aims to answer:
+- Which subjects and courses are driving the most demand, and where is the catalog over- or under-invested?
+- What pricing patterns actually correlate with subscriber and revenue outcomes?
+- How has course publication and revenue evolved over time — and what does that trend suggest about the platform's growth trajectory?
+- What signals (like reviews) are most tied to revenue, and can the platform influence them?
 
-The dashboard includes:
-- Top 10 courses by various metrics (subscribers, revenue, lectures, etc.)
-- Free vs. Paid course distribution
-- Average metrics by subject, level, and paid status
-- Course publication trends by year and month
-- Annual revenue and subscriber trends
+## 📂 Data Overview
 
-</td>
-</tr>
-</table>
-
----
-
-## 📂 Dataset
-
-| Property | Details |
+| Attribute | Details |
 |---|---|
-| **Source** | [Kaggle — Udemy Courses Dataset](https://www.kaggle.com/datasets/refiaozturk/udemy-courses-dataset) |
-| **Records** | 3,678 courses |
-| **Features** | 12 columns |
+| Source | [Kaggle — Udemy Courses Dataset](https://www.kaggle.com/datasets/refiaozturk/udemy-courses-dataset) |
+| Records | 3,678 courses |
+| Features | 12 columns: title, subject, price, subscribers, reviews, lectures, level, duration, publish date, paid/free status |
 
-### Column Descriptions
+## 🔧 Approach and Methodology
 
-| Column | Description |
-|---|---|
-| `course_id` | Unique identifier for each course |
-| `course_title` | Title of the course |
-| `url` | Direct link to the course on Udemy |
-| `is_paid` | Whether the course is paid (`True`) or free (`False`) |
-| `price` | Course price in USD |
-| `num_subscribers` | Total number of enrolled students |
-| `num_reviews` | Total number of reviews |
-| `num_lectures` | Total number of lectures |
-| `level` | Difficulty level (Beginner, Intermediate, Expert, All Levels) |
-| `content_duration` | Total content duration in hours |
-| `published_timestamp` | Date and time the course was first published |
-| `subject` | Main subject category (Web Development, Business Finance, etc.) |
+```
+Raw Course Dataset (Kaggle)
+        ↓
+Data Cleaning       → Handle missing/inconsistent values, parse timestamps
+        ↓
+Exploratory Analysis → Distribution, correlation, and trend analysis (Python)
+        ↓
+Dashboard Design     → Interactive visualization for stakeholder exploration (Tableau)
+```
 
----
+Analysis was performed across four angles: **popularity** (subscribers, reviews by subject/course), **pricing** (distribution across levels and subjects), **correlation** (price, duration, reviews vs. subscribers), and **time trends** (publication volume and revenue by year).
 
 ## 🔍 Key Findings
 
-- **Web Development** dominates with nearly **8 million total subscribers** — the most popular subject on Udemy
-- **"Learn HTML5 Programming From Scratch"** is the single most subscribed course with **268,923 subscribers**
-- **91.57%** of all courses on Udemy are paid; only 8.43% are free
-- Free courses attract **more subscribers and reviews** than paid courses on average
-- Courses priced around **$20–$25** are the most common price tier
-- Most courses have a duration of **1–6 hours**; very few exceed 20 hours
-- Course duration and price show a **positive correlation** — longer courses tend to cost more
-- Udemy saw its **peak course publications in 2016** (1,206 courses published)
-- Revenue peaked in **2015 at ~$314.5M**, followed by a decline in subsequent years
-- `num_reviews` and `revenue` have a strong positive correlation (**0.77**), suggesting that highly reviewed courses generate more income
+- **Web Development dominates demand**, accounting for nearly 8 million total subscribers — by far the most popular subject on the platform
+- **"Learn HTML5 Programming From Scratch"** is the single most-subscribed course on the platform, with 268,923 subscribers
+- **91.57% of courses are paid**, only 8.43% are free — yet free courses attract *more* subscribers and reviews on average than paid ones
+- **$20–$25 is the most common price tier**, and course duration and price are positively correlated — longer courses tend to be priced higher
+- **Most courses run 1–6 hours**; very few exceed 20 hours of content
+- **Course publications peaked in 2016** (1,206 courses published), while **revenue peaked earlier, in 2015 (~$314.5M)**, then declined in subsequent years
+- **Number of reviews correlates strongly with revenue** (0.77) — more than most other course attributes, suggesting reviews are a meaningful revenue signal, not just a vanity metric
 
----
+## 💡 Business Impact and Recommendations
 
-## 🛠️ Built With
+**1. Rebalance catalog investment away from over-concentration in Web Development**
+With one subject commanding ~8M of total subscribers, the platform is exposed to concentration risk if demand in that category cools. Recommend actively promoting and incentivizing creator supply in adjacent high-potential but under-represented subjects to diversify the catalog's growth drivers.
+
+**2. Use free courses strategically as a discovery funnel**
+Since free courses draw more subscribers and reviews on average, the platform should encourage creators to offer free introductory modules or mini-courses that funnel learners toward paid, deeper content — rather than treating free and paid as fully separate catalogs.
+
+**3. Anchor pricing guidance around the $20–$25 sweet spot**
+This is the range where course volume concentrates and price and duration relationships hold consistently. New creators setting prices for standard-length courses should be guided toward this range by default, reserving premium pricing for clearly differentiated, longer-form content.
+
+**4. Investigate the post-2015 revenue decline as a priority, not a footnote**
+Publication volume kept growing after 2015, but revenue didn't follow — that gap (more supply, less revenue) points to saturation or pricing pressure and deserves direct investigation (e.g., discounting behavior, increased competition) rather than being read as a simple "more courses, less demand per course" story.
+
+**5. Treat review generation as a revenue lever, not just a trust signal**
+Given the strong review-revenue correlation, the platform should consider product nudges that increase review completion rates (e.g., post-completion prompts, incentives) as a direct lever for revenue growth, not only for course credibility.
+
+## 🛠️ Tools & Tech Stack
 
 | Category | Tools |
 |---|---|
@@ -103,23 +89,14 @@ The dashboard includes:
 | Visualization | Matplotlib, Seaborn |
 | Interactive Dashboard | Tableau Public |
 | Notebook Environment | Google Colab |
-| Data Storage | Google Drive, CSV |
-| Dataset Source | Kaggle |
+| Data Source | Kaggle |
 
----
+## 👤 Author
 
+**Farhan Fadhilah Rasyid**
 
-## 👥 Authors
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/farhanfdlh)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/farhan-fadhilah-rasyid)
+[![Website](https://img.shields.io/badge/Website-000000?style=for-the-badge&logo=google-chrome&logoColor=white)](https://farhan-portfolio-smoky.vercel.app)
 
-| Name | GitHub |
-|---|---|
-| Faisal Abu Bakar Riza | [@FaisalABR](https://github.com/FaisalABR) |
-| Farhan Fadhilah Rasyid | [@farhanfdlh](https://github.com/farhanfdlh) |
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-
----
+*Co-authored with [Faisal Abu Bakar Riza](https://github.com/FaisalABR).*
